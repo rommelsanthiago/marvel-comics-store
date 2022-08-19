@@ -23,7 +23,7 @@ const Home = () => {
                 {allComics.length <= 0
                 ? 'Loading...'
                 : allComics.map(comic => (
-                    <Card key={comic.id} comic={comic}/>
+                    <Card key={comic.id} comic={comic} />
                 ))}
           </S.CardContainer>
         </div>

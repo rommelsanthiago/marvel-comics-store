@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
+import * as colors from './utils/colors'
 import MarvelBold from './assets/fonts/Marvel-Bold.ttf'
 import MarvelRegular from './assets/fonts/Marvel-Regular.ttf'
 
@@ -13,7 +14,8 @@ export const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'Marvel-Bold';
         height: 100vh;
-        width: 100%;
+        min-width: 100%;
+        background-color: ${colors.backgroundPrimary};
     }
 
     @font-face {

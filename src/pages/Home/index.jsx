@@ -11,12 +11,15 @@ import * as S from './styles'
 
 const Home = () => {
     const navigate = useNavigate()
-    const {allComics} = useContext(StateContext)
+    const {allComics, amount} = useContext(StateContext)
 
     return (
         <div>
             <Navbar>
-                <Button onClick={() => goToCart(navigate)}><ShoppingBag color="red" size={36} /></Button>
+                <Button onClick={() => goToCart(navigate)}>
+                    <ShoppingBag color="red" size={26} />
+                    {amount > 0 ? <S.Span>{amount}</S.Span> : ""}
+                </Button>
             </Navbar>
             <S.CardContainer>
                 {allComics.length <= 0

@@ -5,7 +5,7 @@ import LinesEllipsis  from "react-lines-ellipsis";
 import { formatCurrency } from '../../utils/formatCurrency';
 import * as S from './styles'
 
-export const Modal = ({ showModal, setShowModal, comic }) => {
+export const Modal = ({ showModal, setShowModal, comic, addToCart }) => {
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -85,7 +85,7 @@ export const Modal = ({ showModal, setShowModal, comic }) => {
                         <strong> Preço: </strong>{formatCurrency(comic.prices[0].price)}
                     </p>
                 </div>
-                <button>Adicionar ao carrinho</button>
+                <button onClick={addToCart}>Adicionar ao carrinho</button>
               </S.ModalContent>
               <S.CloseModalButton
                 aria-label='Close modal'

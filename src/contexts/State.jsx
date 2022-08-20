@@ -5,6 +5,12 @@ import { BASE_URL } from '../utils/url'
 
 const State = (props) => {
     const [allComics, setAllComics] = useState([]);
+    const [products, setProducts] = useState([]);
+
+    let amount = 0; 
+    for(const product of products){
+        amount += product.amount
+    }
 
     useEffect(()=>{
         const GetComicOptions = async () => {
@@ -21,7 +27,12 @@ const State = (props) => {
         GetComicOptions();
     }, [])
 
-    const data = { allComics }
+    const data = { 
+        allComics,
+        products, 
+        setProducts,
+        amount 
+    }
     
     return (
         <StateContext.Provider value={data}>

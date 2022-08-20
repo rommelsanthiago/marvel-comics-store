@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import * as S from "./styles"
 import { formatCurrency } from "../../utils/formatCurrency";
 import { Modal } from "../Modal";
+import StateContext from "../../contexts/StateContext";
 
 const Card = ({comic}) => {
+  const { products, setProducts } = useContext(StateContext)
 
   const [showModal, setShowModal] = useState(false);
   const [showButton, setShowButton] = useState(false);
@@ -12,6 +14,21 @@ const Card = ({comic}) => {
   const openModal = () => {
     setShowModal(prev => !prev);
   };
+
+  const addToCart = () => {
+    const index = products.findIndex((i) => i.id === comic.id)
+
+    const newCart = [...products]
+
+    if (index === -1) {
+      const cartItem = { ...comic, amount: 1, comic }
+      newCart.push(cartItem)
+    } else {
+      newCart[index].amount += 1
+    }
+
+    setProducts(newCart)
+  }
 
   return (
     <>
@@ -30,7 +47,10 @@ const Card = ({comic}) => {
 
           <p>{formatCurrency(comic.prices[0].price)}</p>
 
-          <S.Button display={showButton ? "block" : "none"} >
+          <S.Button 
+            display={showButton ? "block" : "none"} 
+            onClick={addToCart}
+          >
             Comprar
           </S.Button>
         </S.Card>
@@ -38,7 +58,8 @@ const Card = ({comic}) => {
       <Modal
           showModal={showModal} 
           setShowModal={setShowModal} 
-          comic={comic} 
+          comic={comic}
+          addToCart={addToCart} 
       />
     </>
   );

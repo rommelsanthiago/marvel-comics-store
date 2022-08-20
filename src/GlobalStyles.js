@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Marvel-Bold';
         height: 100vh;
         min-width: 100%;
-        background-color: ${colors.backgroundPrimary};
+        background-color: ${colors.primary};
     }
 
     @font-face {

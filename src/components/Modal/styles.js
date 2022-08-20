@@ -14,18 +14,18 @@ export const Background = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 99;
 `;
 
 export const ModalWrapper = styled.div`
     width: 100%;
     height: 100%;
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-    background: ${colors.backgroundPrimary};
+    background: #696969;
     color: #000;
     display: grid;
     grid-template-columns: 1fr 1.3fr;
     position: relative;
-    z-index: 10;
     border-radius: 10px;
 `;
 

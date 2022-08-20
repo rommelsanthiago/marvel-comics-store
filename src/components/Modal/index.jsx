@@ -61,28 +61,30 @@ export const Modal = ({ showModal, setShowModal, comic }) => {
                 <h1>{comic.title}</h1>
                 <div>
                     <h2>Resumo</h2>
-                    <LinesEllipsis
-                        text={description}
-                        maxLine='20'
-                        ellipsis='...'
-                        trimRight
-                        basedOn='letters'
-                    />
+                    <div>
+                        <LinesEllipsis
+                            text={description}
+                            maxLine='20'
+                            ellipsis='...'
+                            trimRight
+                            basedOn='letters'
+                        />
+                    </div>
+                    <p>
+                        <strong>Número de páginas: </strong> 
+                        {comic.pageCount ? comic.pageCount : <em>{noInfo}</em>}
+                    </p>
+                    <p>
+                        <strong> Série: </strong> 
+                        {comic.series.name ? comic.series.name : <em>{noInfo}</em> }
+                    </p>
+                    <p>
+                        <strong> Número: </strong> {comic.issueNumber? comic.issueNumber: <em>{noInfo}</em>}
+                    </p>
+                    <p>
+                        <strong> Preço: </strong>{formatCurrency(comic.prices[0].price)}
+                    </p>
                 </div>
-                <p>
-                    <strong>Número de páginas: </strong> 
-                    {comic.pageCount ? comic.pageCount : <em>{noInfo}</em>}
-                </p>
-                <p>
-                    <strong> Série: </strong> 
-                    {comic.series.name ? comic.series.name : <em>{noInfo}</em> }
-                </p>
-                <p>
-                    <strong> Número: </strong> {comic.issueNumber? comic.issueNumber: <em>{noInfo}</em>}
-                </p>
-                <p>
-                    <strong> Preço: </strong>{formatCurrency(comic.prices[0].price)}
-                </p>
                 <button>Adicionar ao carrinho</button>
               </S.ModalContent>
               <S.CloseModalButton

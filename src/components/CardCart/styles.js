@@ -7,16 +7,3 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
 `
-
-export const FormProducts = styled.form`
-    width: 100%;
-    color: ${colors.secondary};
-`
-
-export const CartCollaterals = styled.div`
-    width: 100%;
-`
-
-export const CartTotals = styled.div`
-    width: 100% ;
-`

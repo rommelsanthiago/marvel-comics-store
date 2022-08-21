@@ -16,8 +16,9 @@ import * as S from "./styles"
 
 const mapStyleContainer = {
   width: '80%',
-  height: '50vh',
+  height: '60vh',
   margin: "0 auto",
+  marginBottom: "3em"
 }
 
 export default function MapContainer() {

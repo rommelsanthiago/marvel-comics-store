@@ -9,13 +9,7 @@ export const Link = styled.a`
 export const Title = styled.h1`
     color: ${colors.secondary};
     text-align: center;
-    padding: 1em 0 6em 0;
-`
-
-export const FormProducts = styled.form`
-    float: left;
-    width: 60%;
-    color: ${colors.secondary};
+    padding: 1em 0 2em 0;
 `
 
 export const Span = styled.span`

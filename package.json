@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reach/combobox": "^0.17.0",
+    "@react-google-maps/api": "^2.12.1",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "md5": "^2.3.0",
@@ -19,7 +21,8 @@
     "react-lines-ellipsis": "^0.15.3",
     "react-router-dom": "^6.3.0",
     "react-spring": "^9.5.2",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "use-places-autocomplete": "^4.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",

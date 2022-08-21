@@ -2,6 +2,7 @@ import React from 'react'
 
 import * as S from './styles'
 import { formatCurrency } from '../../utils/formatCurrency';
+import MapContainer from '../Map';
 
 const CardCart = ({products}) => {
 
@@ -67,6 +68,9 @@ const CardCart = ({products}) => {
           </table>
         </S.CartTotals>
       </S.CartCollaterals>
+      <div>
+        <MapContainer />
+      </div>
     </S.Container>
   )
 }

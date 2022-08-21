@@ -22,7 +22,8 @@
     "react-router-dom": "^6.3.0",
     "react-spring": "^9.5.2",
     "styled-components": "^5.3.5",
-    "use-places-autocomplete": "^4.0.0"
+    "use-places-autocomplete": "^4.0.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",

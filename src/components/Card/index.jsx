@@ -15,6 +15,15 @@ const Card = ({comic}) => {
     setShowModal(prev => !prev);
   };
 
+  const setInLocalStorage = (keyName, value) => {
+    try {
+        localStorage.setItem(keyName, JSON.stringify(value))
+    } catch (error) {
+        console.log('Error in local storage', error)
+        setInLocalStorage(keyName, JSON.parse(localStorage.getItem(keyName)))
+    }
+  }
+
   const addToCart = () => {
     const index = products.findIndex((i) => i.id === comic.id)
 
@@ -28,6 +37,8 @@ const Card = ({comic}) => {
     }
 
     setProducts(newCart)
+
+    setInLocalStorage("products", newCart)
   }
 
   return (

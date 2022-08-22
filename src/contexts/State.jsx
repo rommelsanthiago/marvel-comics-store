@@ -7,12 +7,19 @@ const State = (props) => {
     const [allComics, setAllComics] = useState([]);
     const [products, setProducts] = useState([]);
 
+    let localProducts = JSON.parse(localStorage.getItem('products'))
+
     let amount = 0; 
     for(const product of products){
         amount += product.amount
     }
 
     useEffect(()=>{
+
+        if(localProducts){
+            setProducts(localProducts)
+        }
+
         const GetComicOptions = async () => {
             let returnedComics = [];
         

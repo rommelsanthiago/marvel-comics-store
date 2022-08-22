@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import { GoogleMap, Marker, LoadScript } from "@react-google-maps/api";
 import {
   getGeocode,
   getLatLng,
@@ -13,24 +13,26 @@ const mapStyleContainer = {
 }
 
 export default function MapContainer({address}) {
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: import.meta.env.VITE_API_GOOGLE_API_KEY,
-    libraries: ["places"],
-  });
-
-  if (!isLoaded) return <div>Loading...</div>;
-  return <Map address={address} />;
+  
+  return  <LoadScript
+            id="script-loader"
+            googleMapsApiKey={import.meta.env.VITE_API_GOOGLE_API_KEY}
+            language="pt-br"
+            region="BR"
+            version="weekly"
+          >
+            <Map address={address} />;
+          </LoadScript>
 }
 
 function Map({address}) {
   const center = useMemo(() => ({ lat: -7.224140, lng: -39.313411 }), []);
-  const zoom = 12;
   const [selected, setSelected] = useState(null);
 
   if(address){
     (async function () {
       const results = await getGeocode({ address });
-      const { lat, lng } = await getLatLng(results[0]);
+      const { lat, lng } = getLatLng(results[0]);
     
       setSelected({ lat, lng });
     })();
@@ -39,7 +41,7 @@ function Map({address}) {
   return (
     <>
       <GoogleMap
-        zoom={selected ? 16 : zoom}
+        zoom={selected ? 16 : 12}
         center={selected ? selected : center}
         mapContainerStyle={mapStyleContainer}
       >

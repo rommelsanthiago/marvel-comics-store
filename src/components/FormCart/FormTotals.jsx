@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import * as S from './styles'
 import { formatCurrency } from '../../utils/formatCurrency';
@@ -9,9 +9,22 @@ import MapContainer from '../Map';
 const FormTotals = ({products}) => {
     const [address, setAddres] = useState();
     const [total, setTotal] = useState();
-    // const [discount, setDiscount] = useState();
+    let localAdrress = localStorage.getItem('address')
+    
+    useEffect(() => {
+      if(localAdrress){
+        setAddres(localAdrress)
+      }
+    }, [address])
 
-    const { form, onChange } = useForm({road: '', num: '', district: '', city: '', state: '', discount: ''})
+    const { form, onChange } = useForm({
+      road: '', 
+      num: '', 
+      district: '', 
+      city: '', 
+      state: '', 
+      discount: ''
+    })
 
     const subtotalValue = products.map((product) => (
         product.amount * product.comic.prices[0].price
@@ -22,7 +35,13 @@ const FormTotals = ({products}) => {
 
     const onSubmit = (e) => {
       e.preventDefault()
-      setAddres(form.road.concat(", ",form.num).concat(", ", form.district).concat(", ", form.city).concat(" - ", form.state))
+      const newAddress = form.road.concat(", ",form.num)
+      .concat(", ", form.district)
+      .concat(", ", form.city)
+      .concat(" - ", form.state)
+
+      setAddres(newAddress)
+      localStorage.setItem("address", newAddress)
     }
 
     const onDiscount = (e) => {

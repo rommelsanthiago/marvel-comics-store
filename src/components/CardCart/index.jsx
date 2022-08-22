@@ -10,7 +10,6 @@ const CardCart = ({products}) => {
     <S.Container>
       <FormProducts products={products} />
       <FormTotals products={products} />
-      <MapContainer />
     </S.Container>
   )
 }

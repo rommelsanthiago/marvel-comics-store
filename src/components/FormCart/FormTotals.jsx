@@ -9,9 +9,9 @@ import MapContainer from '../Map';
 const FormTotals = ({products}) => {
     const [address, setAddres] = useState();
     const [total, setTotal] = useState();
-    const [discount, setDiscount] = useState();
+    // const [discount, setDiscount] = useState();
 
-    const { form, onChange } = useForm({road: '', num: '', district: '', city: '', state: ''})
+    const { form, onChange } = useForm({road: '', num: '', district: '', city: '', state: '', discount: ''})
 
     const subtotalValue = products.map((product) => (
         product.amount * product.comic.prices[0].price
@@ -22,12 +22,12 @@ const FormTotals = ({products}) => {
 
     const onSubmit = (e) => {
       e.preventDefault()
-      setAddres(form.road.concat(", ",form.num).concat(" ", form.district).concat(", ", form.city).concat(" - ", form.state))
+      setAddres(form.road.concat(", ",form.num).concat(", ", form.district).concat(", ", form.city).concat(" - ", form.state))
     }
 
     const onDiscount = (e) => {
       e.preventDefault()
-      if(discount === 'marvel'){
+      if(form.discount === 'marvel'){
         let disc = (subtotal * 10) / 100
         setTotal(subtotal - disc)
       }
@@ -51,8 +51,8 @@ const FormTotals = ({products}) => {
                       type="text"
                       name={'discount'}
                       placeholder='Digite seu cupom'
-                      value={discount}
-                      onChange={(e) => setDiscount(e.target.value)} 
+                      value={form.discount}
+                      onChange={onChange} 
                     />
                     <button>Aplicar desconto</button>
                   </form>
@@ -114,9 +114,9 @@ const FormTotals = ({products}) => {
                   </form>
                 </td>
               </tr>
-              
             </tbody>
           </table>
+          <h1>{address}</h1>
         </S.CartTotals>
         <MapContainer address={address}/>
     </S.ContainerTotals>

@@ -27,14 +27,15 @@ function Map({address}) {
   const zoom = 12;
   const [selected, setSelected] = useState(null);
 
-  const handleSelect = async () => {
-    const results = await getGeocode({ address });
-    const { lat, lng } = getLatLng(results[0]);
-  
-    return setSelected({ lat, lng });
-  };
+  if(address){
+    (async function () {
+      const results = await getGeocode({ address });
+      const { lat, lng } = await getLatLng(results[0]);
+    
+      setSelected({ lat, lng });
+    })();
+  }
 
-  handleSelect()
   return (
     <>
       <GoogleMap

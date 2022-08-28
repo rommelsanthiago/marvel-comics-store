@@ -19,7 +19,7 @@ const FormProducts = ({products}) => {
               </S.Thead>
               <tbody>
               {products.length > 0 ? products.map((product) => (
-                      <tr style={{color: "red"}} key={product.comic.id} >
+                      <S.TbodyTR key={product.comic.id} >
                           <S.TdDelete>X</S.TdDelete>
                           <S.TdImage><S.ImageTd 
                                   src={`${product.comic.thumbnail.path}/portrait_incredible.${product.comic.thumbnail.extension}`} 
@@ -30,7 +30,7 @@ const FormProducts = ({products}) => {
                           <td>{formatCurrency(product.comic.prices[0].price)}</td>
                           <td>{product.amount}</td>
                           <td>{formatCurrency(product.amount * product.comic.prices[0].price)}</td>
-                      </tr>
+                      </S.TbodyTR>
                   ))
                   : null
               }

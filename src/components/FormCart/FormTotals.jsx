@@ -56,6 +56,7 @@ const FormTotals = ({products}) => {
     <S.ContainerTotals>
         <S.CartTotals>
           <h2>Total no carrinho</h2>
+          <S.CartContainer>
           <table>
             <tbody>
               <tr>
@@ -81,61 +82,58 @@ const FormTotals = ({products}) => {
                 <th>Total</th>
                 <td>{formatCurrency(total ? total : subtotal)}</td>
               </tr>
-              <tr>
-                <th>Entrega</th>
-                <td>
-                  <form onSubmit={onSubmit}>
-                    <input 
-                      type="text" 
-                      name={'road'} 
-                      placeholder='Nome da rua' 
-                      value={form.road}
-                      onChange={onChange}
-                      required
-                    />
-                    <input 
-                      type="number" 
-                      name={'num'} 
-                      placeholder='Número' 
-                      value={form.num}
-                      onChange={onChange}
-                      required
-                    />
-                    <input 
-                      type="text" 
-                      name={'district'} 
-                      placeholder='Barirro' 
-                      value={form.district}
-                      onChange={onChange}
-                      required
-                    />
-                    <input 
-                      type="text" 
-                      name={'city'} 
-                      placeholder='Cidade' 
-                      value={form.city}
-                      onChange={onChange}
-                      required
-                    />
-                    <select 
-                      placeholder={"Estado"}
-                      name={"state"}
-                      value={form.state}
-                      onChange={onChange}
-                      required
-                    >
-                      <option value='' disabled>Escolha seu estado</option>
-                      {states.map((state) => {
-                                    return <option value={state.nome} key={state.nome}>{state.nome}</option>
-                                })}
-                    </select>
-                    <button>Enviar</button>
-                  </form>
-                </td>
-              </tr>
             </tbody>
           </table>
-          <h1>{address}</h1>
+          <h2>Entrega</h2>
+          <S.Delivery onSubmit={onSubmit}>
+            <input 
+              type="text" 
+              name={'road'} 
+              placeholder='Nome da rua' 
+              value={form.road}
+              onChange={onChange}
+              required
+            />
+            <input 
+              type="text" 
+              name={'num'} 
+              placeholder='Número' 
+              value={form.num}
+              onChange={onChange}
+              required
+            />
+            <input 
+              type="text" 
+              name={'district'} 
+              placeholder='Barirro' 
+              value={form.district}
+              onChange={onChange}
+              required
+            />
+            <input 
+              type="text" 
+              name={'city'} 
+              placeholder='Cidade' 
+              value={form.city}
+              onChange={onChange}
+              required
+            />
+            <select 
+              placeholder={"Estado"}
+              name={"state"}
+              value={form.state}
+              onChange={onChange}
+              required
+            >
+              <option value='' disabled>Escolha seu estado</option>
+              {states.map((state) => {
+                            return <option value={state.nome} key={state.nome}>{state.nome}</option>
+                        })}
+            </select>
+            <button>Enviar</button>
+          </S.Delivery>
+          </S.CartContainer>
+          <S.Address>{address}</S.Address>
         </S.CartTotals>
         <MapContainer address={address}/>
     </S.ContainerTotals>

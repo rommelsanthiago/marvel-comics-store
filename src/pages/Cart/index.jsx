@@ -33,7 +33,7 @@ const Cart = () => {
                     {
                         products.length > 0 ?
                         <CardCart products={products} amount={amount}/>
-                        : <h1 style={{color: "red"}} >Seu carrinho está vazio.</h1>
+                        : <h1 style={{color: "red", textAlign: "center"}} >Seu carrinho está vazio.</h1>
                     }
                 </div>
             </div>

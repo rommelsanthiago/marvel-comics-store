@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useMemo } from 'react'
+import React, { useContext, useState, useMemo } from 'react'
 import { useNavigate } from "react-router-dom"
 import { ShoppingBag } from 'react-feather';
 

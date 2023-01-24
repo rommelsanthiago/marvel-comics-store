@@ -1,4 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
+import Swal from "sweetalert2";
 
 import * as S from "./styles"
 import { formatCurrency } from "../../utils/formatCurrency";
@@ -38,7 +39,31 @@ const Card = ({comic}) => {
 
     setProducts(newCart)
 
+    showAlertSuccess()
+
     setInLocalStorage("products", newCart)
+  }
+
+  const toastMixin = Swal.mixin({
+    toast: true,
+    icon: 'success',
+    title: 'General Title',
+    animation: false,
+    position: 'top',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
+  const showAlertSuccess = () => {
+    toastMixin.fire({
+      animation: true,
+      title: 'Quadrinho adicionado com sucesso'
+    })
   }
 
   return (
@@ -47,6 +72,7 @@ const Card = ({comic}) => {
         <S.Card 
           onMouseOver={() => setShowButton(true)}
           onMouseOut={() => setShowButton(false)}
+          className="reveal"
         >
           <S.Img
             src={`${comic.thumbnail.path}/portrait_incredible.${comic.thumbnail.extension}`}
@@ -62,7 +88,7 @@ const Card = ({comic}) => {
             display={showButton ? "block" : "none"} 
             onClick={addToCart}
           >
-            Comprar
+            Adicionar ao carrinho
           </S.Button>
         </S.Card>
       </S.Container>

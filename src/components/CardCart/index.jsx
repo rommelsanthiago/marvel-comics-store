@@ -7,7 +7,7 @@ import FormTotals from '../FormCart/FormTotals';
 const CardCart = ({products}) => {
   return (
     <S.Container>
-      <FormProducts products={products} />
+      <FormProducts products={products}/>
       <FormTotals products={products} />
     </S.Container>
   )

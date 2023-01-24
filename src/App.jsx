@@ -3,7 +3,6 @@ import Router from "./Routes/routes"
 import State from "./contexts/State"
 
 function App() {
-  // console.log(process.env)
   return (
     <State>
       <GlobalStyle />

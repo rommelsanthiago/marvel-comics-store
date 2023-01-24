@@ -64,7 +64,7 @@ export const Modal = ({ showModal, setShowModal, comic, addToCart }) => {
                     <div>
                         <LinesEllipsis
                             text={description}
-                            maxLine='20'
+                            maxLine='10'
                             ellipsis='...'
                             trimRight
                             basedOn='letters'

@@ -9,7 +9,7 @@ const mapStyleContainer = {
   width: '80%',
   height: '60vh',
   margin: "0 auto",
-  marginBottom: "3em",
+  marginBottom: "5em",
   borderRadius: "10px"
 }
 

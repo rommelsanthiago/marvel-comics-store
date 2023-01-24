@@ -2,18 +2,20 @@ import styled from 'styled-components';
 
 import * as colors from '../../utils/colors'
 
-export const CardContainer = styled.section`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  justify-content: space-between;
-  gap: 0 1rem;
-  margin: 1rem 0;
-  margin-bottom: 2rem;
-  padding: 2rem 4rem;
+export const Container = styled.div`
+  position: relative;
+  min-height: 100vh;
+`
 
-  @media (max-width: 800px) {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
+export const CardContainer = styled.section`
+  min-height: 65%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 1rem;
+  margin: 3rem 0;
+  margin-bottom: 5rem;
+  padding: 1rem 2rem 12rem;
 `;
 
 export const Span = styled.span`

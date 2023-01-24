@@ -9,6 +9,7 @@ export const Container = styled.div`
     justify-content: space-around;
     align-items: center;
     border-bottom: 3px solid red;
+    background-color: ${colors.primary};
 `
 
 export const Title = styled.h1`

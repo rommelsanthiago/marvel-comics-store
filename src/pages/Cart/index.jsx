@@ -8,6 +8,7 @@ import * as S from './styles'
 import { Button } from '../../components/Button';
 import StateContext from "../../contexts/StateContext";
 import CardCart from '../../components/CardCart';
+import Footer from '../../components/Footer';
 
 const Cart = () => {
     const navigate = useNavigate()
@@ -15,7 +16,7 @@ const Cart = () => {
     const { products, amount } = useContext(StateContext)
 
     return (
-        <>
+        <S.Container>
             <Navbar>
                 <div>
                     <Button onClick={() => goToHome(navigate)}>
@@ -27,7 +28,7 @@ const Cart = () => {
                     </Button>
                 </div>
             </Navbar>
-            <div>
+            <S.Main>
                 <S.Title>Carrinho</S.Title>
                 <div>
                     {
@@ -36,8 +37,9 @@ const Cart = () => {
                         : <h1 style={{color: "red", textAlign: "center"}} >Seu carrinho está vazio.</h1>
                     }
                 </div>
-            </div>
-        </>
+            </S.Main>
+            <Footer />
+        </S.Container>
     )
 }
 

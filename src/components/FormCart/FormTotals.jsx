@@ -56,6 +56,7 @@ const FormTotals = ({products}) => {
     <S.ContainerTotals>
         <S.CartTotals>
           <h2>Total no carrinho</h2>
+          <span>Cupom de desconto: <strong>marvel</strong> </span>
           <S.CartContainer>
           <table>
             <tbody>

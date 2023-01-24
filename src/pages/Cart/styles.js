@@ -2,6 +2,15 @@ import styled  from 'styled-components'
 
 import * as colors from '../../utils/colors'
 
+export const Container = styled.div`
+    position: relative;
+    min-height: 100vh;
+`
+
+export const Main = styled.main`
+    min-height: 90%;
+`
+
 export const Link = styled.a`
     cursor: pointer;
 `

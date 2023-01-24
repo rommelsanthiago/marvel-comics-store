@@ -6,7 +6,6 @@ import * as colors from '../../utils/colors'
 
 export const ContainerProducts = styled.div`
     width: 100%;
-    color: ${colors.secondary};
 `
 export const Table = styled.table`
     width: 100%;
@@ -20,12 +19,13 @@ export const Thead = styled.thead`
     z-index: 100;
     border-bottom: 2px solid red;
     tr{
-        font-size: 1.5rem
+        font-size: 1.5rem;
+        color: ${colors.secondary};
     }
 `
 export const ThProduct = styled.th`
     text-align: left;
-    width: 40vw;
+    width: 30vw;
     padding-bottom: 1rem;
 `
 export const Th = styled.th`
@@ -40,9 +40,17 @@ export const TbodyTR = styled.tr`
     border-bottom: 3px solid #767070;
 `
 
-export const TdDelete = styled.td`
-    width: 5vw;
+export const TdDelete = styled.span`
     text-align: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
+
+    &:hover {
+        background: #76707059;
+    }
 `
 export const TdImage = styled.td`
     width: 8%;
@@ -53,11 +61,25 @@ export const ImageTd = styled.img`
     height: 10vh;
 `
 
+export const ButtonTd = styled.button`
+    width: 2.5em;
+    text-align: center;
+    background: transparent;
+    cursor: pointer;
+    margin: .5rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
+
+    &:hover {
+        background: #76707059;
+    }
+`
+
 // Container Totals
 
 export const ContainerTotals = styled.div`
     width: 100%;
-    margin-top: 2rem;
+    margin: 2rem 0 6rem 0;
 `
 
 export const CartTotals = styled.div`
@@ -65,10 +87,16 @@ export const CartTotals = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: red;
 
     h2 {
         text-align: center;
+        color: ${colors.secondary};
+    }
+
+    span {
+        strong {
+            color: ${colors.secondary};
+        }
     }
 
     table {
